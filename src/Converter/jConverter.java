@@ -27,13 +27,19 @@ public class jConverter extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        TextField = new javax.swing.JTextField();
         celcius = new javax.swing.JLabel();
         convert = new javax.swing.JButton();
         fahrenheit = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("My Temperatur Converter");
+
+        TextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextFieldActionPerformed(evt);
+            }
+        });
 
         celcius.setText("Celcius");
         celcius.setToolTipText("");
@@ -54,7 +60,7 @@ public class jConverter extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
+                    .addComponent(TextField)
                     .addComponent(convert, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE))
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -67,7 +73,7 @@ public class jConverter extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                    .addComponent(TextField, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
                     .addComponent(celcius, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,8 +86,14 @@ public class jConverter extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void convertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_convertActionPerformed
-        // TODO add your handling code here:
+        int tempFahrenheit = (int) ((Double.parseDouble(TextField.getText()))
+        *1.8 + 32);
+        fahrenheit.setText(tempFahrenheit + " Fahrenheit");
     }//GEN-LAST:event_convertActionPerformed
+
+    private void TextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,9 +131,9 @@ public class jConverter extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField TextField;
     private javax.swing.JLabel celcius;
     private javax.swing.JButton convert;
     private javax.swing.JLabel fahrenheit;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
